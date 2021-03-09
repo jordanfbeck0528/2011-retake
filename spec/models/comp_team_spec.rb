@@ -1,5 +1,8 @@
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.describe CompTeam, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe CompTeam, type: :model do
+   describe "relationships" do
+      it {should belong_to(:team)}
+      it {should belong_to(:competition)}
+   end
 end

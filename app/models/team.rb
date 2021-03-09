@@ -1,3 +1,5 @@
 class Team < ApplicationRecord
-  belongs_to :competition
+  has_many :players
+  has_many :comp_teams
+  has_many :competitions, through: :comp_teams
 end

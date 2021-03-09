@@ -1,5 +1,8 @@
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.describe Competition, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Competition, type: :model do
+  describe "relationships" do
+    it {should have_many(:comp_teams)}
+    it {should have_many(:teams).through(:comp_teams)}
+  end
 end
