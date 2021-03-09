@@ -24,6 +24,6 @@ RSpec.describe 'As a user, when I visit a competition index', type: :feature do
       expect(page).to have_content(@competition_3.name)
       expect(page).to have_link("View this Competition")
     end
-    save_and_open_page
+    # save_and_open_page
   end
 end

@@ -1,10 +1,12 @@
 <section class="competitions">
-  <ul>
-    <%@competitions.each do |competition|%>
-      <div id="competition-<%=competition.id%>">
-        <li><%=competition.name%></li>
-        <%= link_to "View this Competition", competition_path(competition.id)%><br>
-      </div>
-    <%end%>
-  </ul>
+    <%=@competition.name%><br>
+    <%=@competition.location%><br>
+    <%=@competition.sport%><br>
+    <%=@average_player_age.round%><br><br>
+    <%@competition.teams.each do |team| %>
+    <div id="team-<%=team.id%>">
+      <%=team.nickname%><br>
+      <%=team.hometown%><br>
+    </div>
+    <%end%><br><br>
 </section>
