@@ -50,11 +50,11 @@ RSpec.describe 'As a user, when I visit a competition show page', type: :feature
 
     visit competition_path(@competition_1.id)
 
-    expect(page).to have_link("Register Team")
+    expect(page).to have_link("Register New Team")
 
-    click_link("Register Team")
+    click_link("Register New Team")
 
-    expect(current_path).to eq(chef_ingredients_path(@chef_1))
+    expect(current_path).to eq(new_competition_team_path(@competition_1.id))
 
     # within("#team-#{@team_1.id}") do
     #   expect(page).to have_content(@team_1.hometown)
