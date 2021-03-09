@@ -1,0 +1,8 @@
+  <%= form_with url: comp_teams_path(@competition.id), method: :post do |form| %>
+    <%= form.label :hometown, "Team Hometown:" %>
+    <%= form.text_field :hometown %>
+    <%= form.label :nickname, "Team Nickname:" %>
+    <%= form.text_field :nickname %>
+    <%= form.hidden_field :competition_id, value: @competition.id %>
+    <%= form.submit "Add Team" %>
+  <% end %><br><br>

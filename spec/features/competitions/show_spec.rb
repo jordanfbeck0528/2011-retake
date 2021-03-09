@@ -5,7 +5,7 @@ RSpec.describe 'As a user, when I visit a competition show page', type: :feature
 
     @team_1 = Team.create!(hometown: "Aspen", nickname: "good team")
     @team_2 = Team.create!(hometown: "Boulder", nickname: "awesome team")
-    @team_3 = Team.create!(hometown: "Denver", nickname: "really good team")
+    # @team_3 = Team.create!(hometown: "Denver", nickname: "really good team")
 
     @player_1 = @team_1.players.create!(name: "tom", age: 12)
     @player_2 = @team_1.players.create!(name: "jim", age: 12)
@@ -56,20 +56,18 @@ RSpec.describe 'As a user, when I visit a competition show page', type: :feature
 
     expect(current_path).to eq(new_competition_team_path(@competition_1.id))
 
-    # within("#team-#{@team_1.id}") do
-    #   expect(page).to have_content(@team_1.hometown)
-    #   expect(page).to have_content(@team_1.nickname)
-    # end
-    #
-    # within("#team-#{@team_2.id}") do
-    #   expect(page).to have_content(@team_2.hometown)
-    #   expect(page).to have_content(@team_2.nickname)
-    # end
-    # expect(page).to have_content(@competition_1.avg_player_age.round)
+    expect(page).to have_field("Team Hometown")
+    expect(page).to have_field("Team Nickname")
+
+    fill_in :hometown, with: 'Denver'
+    fill_in :nickname, with: 'nuggets'
+
+    click_on("Add Team")
+
+    expect(current_path).to eq(competition_path(@competition_1.id))
+
+    save_and_open_page
+    expect(page).to have_content("Denver")
+    expect(page).to have_content("nuggets")
   end
 end
-
-# When I fill in this form with a team's hometown and nickname
-# And I click submit
-# Then I am redirected back to the competition's show page
-# And I see the new team I created listed
