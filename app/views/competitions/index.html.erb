@@ -1,0 +1,11 @@
+<section class="competitions">
+  <h3>Patients:</h3>
+  <ul>
+    <%@competitions.each do |competition|%>
+      <div id="competition-<%=competition.id%>">
+        <li><%=competition.name%></li>
+        <%= link_to "View this Competition", competition_path(competition.id)%><br>
+      </div>
+    <%end%>
+  </ul>
+</section>
